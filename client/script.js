@@ -14,7 +14,7 @@ var temp = 0;
 // }
 
 function getTemp() {
-  fetch("http://localhost:3000/temp")
+  fetch("https://colour-temp-web.vercel.app/api/temp/C8:C9:A3:C8:9D:DC")
     .then((response) => response.json())
     .then((data) => console.log(data));
 }
