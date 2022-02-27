@@ -3,6 +3,9 @@ from flask import Flask, jsonify, request, abort
 from flask_pymongo import PyMongo
 from pymongo import ReturnDocument
 from dotenv import load_dotenv
+from bson.json_util import dumps
+from json import loads
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -15,7 +18,7 @@ def patch(mac):
   res = mongo.db.temp.find_one_and_update({"mac": mac},{"$set": {"temp": temp}}, return_document=ReturnDocument.AFTER)
   if res == None:
     return 404
-  return res
+  return loads(dumps(res))
 
 @app.route('/api/temp/<mac>', methods=["GET"])
 def get(mac):
@@ -23,7 +26,7 @@ def get(mac):
 
   if res == None:
     return 404
-  return res
+  return loads(dumps(res))
 
 if os.getenv("ENVIRONMENT") == "dev":
   app.listen(host="0.0.0.0", port=3000, debug=True)
