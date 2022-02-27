@@ -13,7 +13,7 @@ app.config["MONGO_URI"] = os.getenv("MONGO_CONNECT_STRING")
 mongo = PyMongo(app)
 
 @app.route('/api/temp', methods=["PATCH"])
-def patch(mac):
+def patch():
   temp = request.json["temp"]
   res = mongo.db.temp.find_one_and_update({"mac": os.getenv("MAC_ADDRESS")},{"$set": {"temp": temp}}, return_document=ReturnDocument.AFTER)
   if res == None:
@@ -21,7 +21,7 @@ def patch(mac):
   return loads(dumps(res))
 
 @app.route('/api/temp', methods=["GET"])
-def get(mac):
+def get():
   res = mongo.db.temp.find_one({"mac": os.getenv("MAC_ADDRESS")})
 
   if res == None:
