@@ -1,5 +1,5 @@
 var temp = 0;
-
+console.log("testing");
 // document.addEventListener("keydown", logKey);
 
 // function logKey(e) {
