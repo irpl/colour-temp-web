@@ -1,0 +1,14 @@
+{
+  "name": "colour-temp",
+  "version": 2,
+  "builds": [
+    { "src": "client/**", "use": "@vercel/static" },
+    { "src": "api/app.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "^/api/temp", "dest": "api/app.py" },
+    { "src": "^/favicon.ico", "dest": "/client/favicon.ico" },
+    { "src": "^/(css|js)/(.+)", "dest": "/client/$1/$2" },
+    { "src": "^/.*", "dest": "/client/index.html" }
+  ]
+}

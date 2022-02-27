@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+  background: linear-gradient(-45deg, #ee7752, 80%, #23d5ab);
+  /* background-color: red; */
+  /* background-size: 400% 400%; */
+  /* animation: gradient 2s ease infinite; */
+  transition: all 1s linear;
+
+  height: 100vh;
+}
+
+/* body:hover {
+  background: linear-gradient(-45deg, #000, red);
+} */
+
+/* @keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
