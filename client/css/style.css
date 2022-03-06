@@ -1,7 +1,7 @@
 body {
   margin: 0;
   /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
-  background: linear-gradient(-45deg, #ee7752, 80%, #23d5ab);
+  background: linear-gradient(-45deg, #ee7752, 80%, #89cff0);
   /* background-color: red; */
   /* background-size: 400% 400%; */
   /* animation: gradient 2s ease infinite; */
@@ -9,7 +9,17 @@ body {
 
   height: 100vh;
 }
-
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.temp-val {
+  margin-left: 50px;
+  font-size: 5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
 /* body:hover {
   background: linear-gradient(-45deg, #000, red);
 } */

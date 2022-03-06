@@ -1,6 +1,9 @@
 var temp = 0;
 console.log("testing");
-setInterval(getTemp, 1000);
+setInterval(() => {
+  getTemp();
+  colourTemp();
+}, 500);
 // document.addEventListener("keydown", logKey);
 
 // function logKey(e) {
@@ -17,25 +20,47 @@ setInterval(getTemp, 1000);
 function getTemp() {
   fetch("https://colour-temp-web.vercel.app/api/temp")
     .then((response) => response.json())
-    .then((data) => (temp = data.temp));
+    .then((data) => {
+      temp = parseFloat(data.temp).toFixed(2);
+      // console.log(data.temp);
+    });
 }
 
 function colourTemp() {
+  // var reds = [
+  //   "#ff4000", //7
+  //   "#ff2b00", // 6
+  //   "#ff1500", // 5
+  //   "#ff0000", // 4
+  //   "#ff0015", // 3
+  //   "#ff002b", // 2
+  //   "#ff0040", // 1
+  // ];
+  // var reds = [
+  //   "#ff8000", //8
+  //   "#ff6b00", //7
+  //   "#ff5500", //6
+  //   "#ff4000", //5
+  //   "#ff2b00", //4
+  //   "#ff1500", //3
+  //   "#ff0000", //2
+  //   "#ff0000", //1
+  // ];
   var reds = [
-    "#ffffff", // 13
-    "#ffebeb", // 12
-    "#ffd8d8", // 11
-    "#ffc4c4", // 10
-    "#ffb1b1", // 9
-    "#ff9d9d", // 8
-    "#ff8989", // 7
-    "#ff7676", // 6
-    "#ff6262", // 5
-    "#ff4e4e", // 4
-    "#ff3b3b", // 3
-    "#ff2727", // 2
-    "#ff1414", // 1
+    "#ffc000", //1
+    "#ffab00", //2
+    "#ff9500", //3
+    "#ff8000", //4
+    "#ff6b00", //5
+    "#ff5500", //6
+    "#ff4000", //7
+    "#ff4000", //8
+    "#ff4000", //9
+    "#ff4000", //10
   ];
-  // var cols = ["#ee7752, #e73c7e, #23a6d5, #23d5ab", "#ee0052, #e73c00, #00a6d5, #2005ab"];
-  document.querySelector("body").style.background = `linear-gradient(-45deg, ${parseInt(reds[temp / 10])} ${temp}%, #23d5ab)`;
+  var pIndex = Math.round(parseFloat(temp / 10));
+  // console.log(pIndex);
+  // document.querySelector("body").style.background = `linear-gradient(-45deg, ${reds[pIndex]}, rgb(121,9,57) ${temp}%, #89cff0)`;
+  document.querySelector("body").style.background = `linear-gradient(-45deg, #ff4000, rgb(121,9,57) ${temp}%, #89cff0)`;
+  document.querySelector(".temp-val").innerHTML = `${temp}&#176;C`;
 }
