@@ -1,6 +1,7 @@
 import os
 from flask import Flask, jsonify, request, abort
 from flask_pymongo import PyMongo
+from flask_cors import CORS
 from pymongo import ReturnDocument
 from dotenv import load_dotenv
 from bson.json_util import dumps
@@ -29,4 +30,4 @@ def get():
   return loads(dumps(res))
 
 if os.getenv("ENVIRONMENT") == "dev":
-  app.listen(host="0.0.0.0", port=3000, debug=True)
+  app.run(host="0.0.0.0", port=3000, debug=True)

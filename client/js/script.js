@@ -1,5 +1,6 @@
 var temp = 0;
 console.log("testing");
+setInterval(getTemp, 1000);
 // document.addEventListener("keydown", logKey);
 
 // function logKey(e) {
@@ -14,9 +15,9 @@ console.log("testing");
 // }
 
 function getTemp() {
-  fetch("https://colour-temp-web.vercel.app/api/temp/C8:C9:A3:C8:9D:DC")
+  fetch("https://colour-temp-web.vercel.app/api/temp")
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => (temp = data.temp));
 }
 
 function colourTemp() {
