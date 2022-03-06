@@ -10,6 +10,7 @@ from json import loads
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 app.config["MONGO_URI"] = os.getenv("MONGO_CONNECT_STRING")
 mongo = PyMongo(app)
 
