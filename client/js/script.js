@@ -37,5 +37,5 @@ function colourTemp() {
     "#ff1414", // 1
   ];
   // var cols = ["#ee7752, #e73c7e, #23a6d5, #23d5ab", "#ee0052, #e73c00, #00a6d5, #2005ab"];
-  document.querySelector("body").style.background = `linear-gradient(-45deg, ${reds[temp / 10]} ${temp}%, #23d5ab)`;
+  document.querySelector("body").style.background = `linear-gradient(-45deg, ${parseInt(reds[temp / 10])} ${temp}%, #23d5ab)`;
 }
